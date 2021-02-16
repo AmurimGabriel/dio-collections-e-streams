@@ -1,0 +1,98 @@
+Java Collections API
+
+A API Collections é composta pelas interface java.util.List, Queue, Set e Map.
+A Collections veio ao Java para prover a facilidade que os Arrays não proviam.
+
+
+# java.util.List
+
+## Implementações:
+    - java.util.ArrayList
+    - java.util.Vector
+
+- Garante a ordem de inserção. 
+- Permite adição, atualização, leitura e remoção sem regras adicionais.
+- Permite a ordenação através de COMPARATORS.
+
+### Interators
+Prove uma forma de seqüencialmente acessar os elementos de uma coleção sem expor sua representação interna.
+
+### java.util.ArrayList x java.util.Vector
+A diferença basica é que o ArrayList não possui um sincronização multi-thread, já o Vector faz o controle. 
+Ex: duas thread tentando inserir um elemento na mesma posição de uma lista, o Vector garante que apenas uma delas irá inserir.
+
+
+# java.util.Queue
+
+O primeiro elemento que entra deve ser o primeiro a sair.
+
+## Implementações:
+    - java.util.LinkedList
+
+- Garante a ordem de inserção. 
+- Permite adição, autalização, leitura e remoção de acordo com a regra básica de uma fila.
+- NÃO Permite a ordenação.
+
+
+# java.util.Set
+
+Permite uma melhor performance, caso não precise ordernar a lista.
+
+## Implementações:
+    - java.util.HashSet
+    - java.util.TreeSet
+    - java.util.LinkedHashSet
+
+- Por padrão, não garante a ordem.
+- Não permite itens repetidos.
+- Permite edição e remoção. mas não permite a busca e atualização, apenas leitura.
+- Não permite mudança de ordenação.
+
+### java.util.HashSet
+Utilizar quando não é necessário realizar uma ordenação 
+    e/ou manter a ordem de inserção 
+    e/ou repertir elementos. 
+Lista performática.
+
+### java.util.LinkedHashSet
+Utilizar quando é necessário manter a ordem de inserção.
+Lista menos performática.
+
+### java.util.TreeSet
+Utilizar quando é necessário realizar uma ordenação e manter a ordem de inserção.
+Lista performática para leitura. Para modificação se torna menos performática que a LinkedHashSet.
+
+ 
+# java.util.Map
+
+Não é um interface que extende java.util.Collections. 
+A principal diferença entre Map e as outras listas é que no Map se armazena o valor e chave do valor.
+
+## Implementações:
+    - java.util.HashMap
+    - java.util.TreeMap
+    - java.util.HashTable
+
+- Entrada de chave e valor.
+- Permite valores repetidos, mas não permite repetição de chave.
+- Permite adição, busca por chave ou valor, atualização, remoção e navegação.
+- Pode ser ordenado. Não garante ordem de inserção.
+
+
+# java.util.Comparator e ava.util.Comparable
+
+Interfaces da API Collections que auxiliam na ordenação de coleções de objetos complexos e simples.
+
+java.util.Comparator - Interface para definir classe com regra de ordenação.
+java.util.Comparable - Interface para definir regra de ordenação em uma classe de dominio.
+
+
+# Optionals
+
+Tratamento para valores que podem ser nulos.
+
+Possui dois estados
+    - Presente
+    - Vazio
+
+Permite que você excecute operações em valores que podem ser nulos sem preocupação com as NullPointerExceptions
